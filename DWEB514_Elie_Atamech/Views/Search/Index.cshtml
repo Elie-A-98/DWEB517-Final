@@ -53,6 +53,7 @@
                 $.ajax({
                     url: "/api/search/",
                     method: "GET",
+                    processData: false,
                     data: JSON.stringify({
                         "NameSubstring": name.val(),
                         "SalaryFrom": salaryFrom.val(),
