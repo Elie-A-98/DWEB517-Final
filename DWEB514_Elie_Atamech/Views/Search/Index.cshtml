@@ -1,0 +1,76 @@
+﻿@model DWEB514_Elie_Atamech.Models.SearchModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Search</h2>
+
+@using (Html.BeginForm("Save", "Search"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.NameSubstring)
+        @Html.TextBoxFor(m => m.NameSubstring, new { @class = "form-control", id = "name" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.SalaryFrom)
+        @Html.TextBoxFor(m => m.SalaryFrom, new { @class = "form-control", id="salaryFrom" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.SalaryTo)
+        @Html.TextBoxFor(m => m.SalaryTo, new { @class = "form-control", id = "salaryTo" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.SpecialityCode)
+        @Html.DropDownListFor(m => m.SpecialityCode, new SelectList(Model.Specialities, "Code", "Name"), "Select Speciality", new { @class = "form-control", id = "speciality" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.HospitalId)
+        @Html.DropDownListFor(m => m.HospitalId, new SelectList(Model.Hospitals, "Id", "Name"), "Select Speciality", new { @class = "form-control", id = "hospital" })
+    </div>
+
+    <button id="search" type="submit" class="btn btn-primary">Save</button>
+}
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#search").on("click", function (e) {
+                alert("QWE");
+                e.preventDefault();
+                var button = $(this);
+                var name = $("#name")
+                var salaryFrom = $("#salaryFrom")
+                var salaryTo = $("#salaryTo")
+                var speciality = $("#speciality")
+                var hospital = $("#hospital")
+                $.ajax({
+                    url: "/api/search/",
+                    method: "GET",
+                    data: JSON.stringify({
+                        "NameSubstring": name.val(),
+                        "SalaryFrom": salaryFrom.val(),
+                        "SalaryTo": salaryTo.val(),
+                        "SpecialityCode": speciality.val(),
+                        "HospitalId": hospital.val()}),
+                    dataType: 'json',
+                    //contentType: "application/json",
+                    success: function (data) {
+                        alert(data)
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+
+
+
+

@@ -137,11 +137,16 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Api\SearchController.cs" />
     <Compile Include="Controllers\Api\DoctorsController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HospitalsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Dtos\SearchDoctorDto.cs" />
+    <Compile Include="Dtos\HospitalDto.cs" />
+    <Compile Include="Dtos\SpecialityDto.cs" />
+    <Compile Include="Dtos\SearchDto.cs" />
     <Compile Include="Dtos\DoctorDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -149,6 +154,7 @@
     <Compile Include="Models\DoctorModel.cs" />
     <Compile Include="Models\HospitalModel.cs" />
     <Compile Include="Models\SpecialityModel.cs" />
+    <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\SpecialityService.cs" />
     <Compile Include="Services\DoctorService.cs" />
@@ -370,10 +376,11 @@
     <Content Include="Views\Hospitals\Index.cshtml" />
     <Content Include="Views\Doctors\Index.cshtml" />
     <Content Include="Views\Doctors\DoctorForm.cshtml" />
+    <Content Include="Views\Search\SearchForm.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Search\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

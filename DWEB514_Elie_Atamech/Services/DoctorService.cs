@@ -21,6 +21,28 @@ namespace DWEB514_Elie_Atamech.Services
         {
             new Doctor().Delete(id);
         }
+
+        internal IEnumerable<SearchDoctorDto> Search(string nameSubstring, int salaryFrom, int salaryTo, string spcialityCode, int hospitalId)
+        {
+            IEnumerable<Doctor> doctors = new Doctor().List().Where(
+                x => x.firstName.Equals(nameSubstring)
+                || x.lastName.Equals(nameSubstring)
+                || (x.salary < salaryTo && x.salary > salaryFrom)
+                || x.speciality.Equals(spcialityCode)
+                || x.hospital == hospitalId
+                ).ToList();
+
+            return doctors.Select(d => new SearchDoctorDto
+            {
+                FullName = d.firstName + " " + d.lastName,
+                Email = d.email,
+                HospitalName = d.Hospital1.nname,
+                Phone = d.phone,
+                Salary = d.salary,
+                SpecialityName = d.Speciality1.nname
+            });
+        }
+
         public DoctorModel Find (int id)
         {
             return new DoctorModel().fromDAO(new Doctor().Find(id));
