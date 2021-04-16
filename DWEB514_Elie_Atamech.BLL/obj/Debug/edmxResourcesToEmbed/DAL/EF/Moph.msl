@@ -4,34 +4,33 @@
     <EntitySetMapping Name="Doctors">
       <EntityTypeMapping TypeName="mophModel.Doctor">
         <MappingFragment StoreEntitySet="Doctor">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="firstName" ColumnName="firstName" />
-          <ScalarProperty Name="lastName" ColumnName="lastName" />
-          <ScalarProperty Name="phone" ColumnName="phone" />
-          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="salary" ColumnName="salary" />
-          <ScalarProperty Name="speciality" ColumnName="speciality" />
           <ScalarProperty Name="hospital" ColumnName="hospital" />
+          <ScalarProperty Name="speciality" ColumnName="speciality" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Hospitals">
       <EntityTypeMapping TypeName="mophModel.Hospital">
         <MappingFragment StoreEntitySet="Hospital">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="nname" ColumnName="nname" />
-          <ScalarProperty Name="location" ColumnName="location" />
           <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="nname" ColumnName="nname" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Specialities">
       <EntityTypeMapping TypeName="mophModel.Speciality">
         <MappingFragment StoreEntitySet="Speciality">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="code" ColumnName="code" />
           <ScalarProperty Name="nname" ColumnName="nname" />
+          <ScalarProperty Name="code" ColumnName="code" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

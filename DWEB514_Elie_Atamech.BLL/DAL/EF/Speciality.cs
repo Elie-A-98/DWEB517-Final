@@ -20,7 +20,6 @@ namespace DWEB514_Elie_Atamech.BLL.DAL.EF
             this.Doctors = new HashSet<Doctor>();
         }
     
-        public int id { get; set; }
         public string code { get; set; }
         public string nname { get; set; }
     

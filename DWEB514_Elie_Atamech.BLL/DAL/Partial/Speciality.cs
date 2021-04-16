@@ -26,9 +26,13 @@ namespace DWEB514_Elie_Atamech.BLL.DAL.EF
 
         public Speciality Find(int id)
         {
+            throw new NotImplementedException();
+        }
+        public Speciality Find(string code)
+        {
             using (mophEntities ctx = new mophEntities())
             {
-                return ctx.Specialities.FirstOrDefault(x=>x.id == id);
+                return ctx.Specialities.FirstOrDefault(x => x.code == code);
             }
         }
 

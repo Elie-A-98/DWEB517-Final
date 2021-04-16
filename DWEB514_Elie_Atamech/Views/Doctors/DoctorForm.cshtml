@@ -1,0 +1,52 @@
+﻿@model DWEB514_Elie_Atamech.ViewModels.DoctorFormViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Doctor</h2>
+
+@using (Html.BeginForm("Save", "Doctors")){
+<div class="form-group">
+    @Html.LabelFor(m => m.Doctor.FirstName)
+    @Html.TextBoxFor(m => m.Doctor.FirstName, new { @class = "form-control" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Doctor.LastName)
+    @Html.TextBoxFor(m => m.Doctor.LastName, new { @class = "form-control" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Doctor.Phone)
+    @Html.TextBoxFor(m => m.Doctor.Phone, new { @class = "form-control" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Doctor.DateOfBirth)
+    @Html.TextBoxFor(m => m.Doctor.DateOfBirth, "{0:d MMM yyyy}", new { @class = "form-control" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Doctor.Email)
+    @Html.TextBoxFor(m => m.Doctor.Email, new { @class = "form-control" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Doctor.Salary)
+    @Html.TextBoxFor(m => m.Doctor.Salary, new { @class = "form-control" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Doctor.SpecialityId)
+    @Html.DropDownListFor(m => m.Doctor.SpecialityId, new SelectList(Model.Specialities, "Code", "Name"), "Select Speciality", new { @class = "form-control" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Doctor.HospitalId)
+    @Html.DropDownListFor(m => m.Doctor.HospitalId, new SelectList(Model.Hospitals, "Id", "Name"), "Select Hospital", new { @class = "form-control" })
+</div>
+
+@Html.HiddenFor(m => m.Doctor.Id)
+<button type="submit" class="btn btn-primary">Save</button>
+}

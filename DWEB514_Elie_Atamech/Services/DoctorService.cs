@@ -21,5 +21,48 @@ namespace DWEB514_Elie_Atamech.Services
         {
             new Doctor().Delete(id);
         }
+        public DoctorModel Find (int id)
+        {
+            return new DoctorModel().fromDAO(new Doctor().Find(id));
+        }
+        public DoctorModel CreateOrUpdate(DoctorModel model)
+        {
+            if (model.Id != 0)
+            {
+                new Doctor
+                {
+                    id = model.Id,
+                    firstName = model.FirstName,
+                    dateOfBirth = model.DateOfBirth,
+                    email = model.Email,
+                    hospital = model.HospitalId,
+                    lastName = model.LastName,
+                    phone = model.Phone,
+                    salary = model.Salary,
+                    speciality = model.SpecialityId,
+                }
+                .Update();
+
+                return model;
+            }
+            else
+            {
+                Doctor x = new Doctor
+                {
+                    id = model.Id,
+                    firstName = model.FirstName,
+                    dateOfBirth = model.DateOfBirth,
+                    email = model.Email,
+                    hospital = model.HospitalId,
+                    lastName = model.LastName,
+                    phone = model.Phone,
+                    salary = model.Salary,
+                    speciality = model.SpecialityId,
+                }
+                .insert();
+
+                return new DoctorModel().fromDAO(x);
+            }
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace DWEB514_Elie_Atamech.BLL.DAL.EF
         public Nullable<System.DateTime> dateOfBirth { get; set; }
         public string email { get; set; }
         public int salary { get; set; }
-        public int speciality { get; set; }
+        public string speciality { get; set; }
         public int hospital { get; set; }
     
         public virtual Hospital Hospital1 { get; set; }

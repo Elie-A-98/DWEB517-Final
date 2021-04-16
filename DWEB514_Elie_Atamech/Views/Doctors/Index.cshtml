@@ -2,18 +2,20 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <h2>Doctors</h2>
+<h2>Doctors</h2>
 
-    <table id="doctors" class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th>Full Name</th>
-                <th>Speciality</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+@Html.ActionLink("New Doctor", "Edit", "Doctors", new object { }, new { @class = "btn btn-primary" })
+
+<table id="doctors" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Speciality</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
 
 
 @section scripts
@@ -28,7 +30,7 @@
                 columns: [
                     {
                         data: "FullName",
-                        render: function(data, type, doctor) {
+                        render: function (data, type, doctor) {
                             return "<a href='/doctors/edit/" + doctor.Id + "'>" + doctor.FullName + "</a>";
                         }
                     },
@@ -37,7 +39,7 @@
                     },
                     {
                         data: "Id",
-                        render: function(data) {
+                        render: function (data) {
                             return "<button class='btn-link js-delete' data-doctor-id=" + data + ">Delete</button>";
                         }
                     }

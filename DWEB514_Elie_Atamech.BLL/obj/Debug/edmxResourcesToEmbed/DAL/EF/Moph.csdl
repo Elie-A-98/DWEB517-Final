@@ -1,43 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="mophModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="mophEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Doctors" EntityType="mophModel.Doctor" />
+    <EntitySet Name="Hospitals" EntityType="mophModel.Hospital" />
+    <EntitySet Name="Specialities" EntityType="mophModel.Speciality" />
+    <AssociationSet Name="Doctor_Hopital" Association="mophModel.Doctor_Hopital">
+      <End Role="Hospital" EntitySet="Hospitals" />
+      <End Role="Doctor" EntitySet="Doctors" />
+    </AssociationSet>
+    <AssociationSet Name="Doctor_Speciality" Association="mophModel.Doctor_Speciality">
+      <End Role="Speciality" EntitySet="Specialities" />
+      <End Role="Doctor" EntitySet="Doctors" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="Doctor">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="firstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="dateOfBirth" Type="DateTime" Precision="0" />
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="salary" Type="Int32" Nullable="false" />
-    <Property Name="speciality" Type="Int32" Nullable="false" />
+    <Property Name="speciality" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="hospital" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Hospital1" Relationship="Self.Doctor_Hospital_FK" FromRole="Doctor" ToRole="Hospital" />
-    <NavigationProperty Name="Speciality1" Relationship="Self.Doctor_Speciality_FK" FromRole="Doctor" ToRole="Speciality" />
+    <NavigationProperty Name="Hospital1" Relationship="mophModel.Doctor_Hopital" FromRole="Doctor" ToRole="Hospital" />
+    <NavigationProperty Name="Speciality1" Relationship="mophModel.Doctor_Speciality" FromRole="Doctor" ToRole="Speciality" />
   </EntityType>
   <EntityType Name="Hospital">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Doctors" Relationship="Self.Doctor_Hospital_FK" FromRole="Hospital" ToRole="Doctor" />
+    <Property Name="nname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Doctors" Relationship="mophModel.Doctor_Hopital" FromRole="Hospital" ToRole="Doctor" />
   </EntityType>
   <EntityType Name="Speciality">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="code" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="nname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Doctors" Relationship="Self.Doctor_Speciality_FK" FromRole="Speciality" ToRole="Doctor" />
+    <Property Name="code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Doctors" Relationship="mophModel.Doctor_Speciality" FromRole="Speciality" ToRole="Doctor" />
   </EntityType>
-  <Association Name="Doctor_Hospital_FK">
-    <End Role="Hospital" Type="Self.Hospital" Multiplicity="1" />
-    <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+  <Association Name="Doctor_Hopital">
+    <End Type="mophModel.Hospital" Role="Hospital" Multiplicity="1" />
+    <End Type="mophModel.Doctor" Role="Doctor" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Hospital">
         <PropertyRef Name="id" />
@@ -47,29 +59,16 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="Doctor_Speciality_FK">
-    <End Role="Speciality" Type="Self.Speciality" Multiplicity="1" />
-    <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+  <Association Name="Doctor_Speciality">
+    <End Type="mophModel.Speciality" Role="Speciality" Multiplicity="1" />
+    <End Type="mophModel.Doctor" Role="Doctor" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Speciality">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="code" />
       </Principal>
       <Dependent Role="Doctor">
         <PropertyRef Name="speciality" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="mophEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Doctors" EntityType="Self.Doctor" />
-    <EntitySet Name="Hospitals" EntityType="Self.Hospital" />
-    <EntitySet Name="Specialities" EntityType="Self.Speciality" />
-    <AssociationSet Name="Doctor_Hospital_FK" Association="Self.Doctor_Hospital_FK">
-      <End Role="Hospital" EntitySet="Hospitals" />
-      <End Role="Doctor" EntitySet="Doctors" />
-    </AssociationSet>
-    <AssociationSet Name="Doctor_Speciality_FK" Association="Self.Doctor_Speciality_FK">
-      <End Role="Speciality" EntitySet="Specialities" />
-      <End Role="Doctor" EntitySet="Doctors" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>
