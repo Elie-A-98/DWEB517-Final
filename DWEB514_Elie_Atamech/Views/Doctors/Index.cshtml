@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DWEB514_Elie_Atamech.Models.HospitalModel>
+﻿@model IEnumerable<DWEB514_Elie_Atamech.Models.DoctorModel>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,31 +6,31 @@
 
 @if (!Model.Any())
 {
-    <p>There are no hospitals at the moment.</p>
+    <p>There are no doctors at the moment.</p>
 }
 else
 {
-    <h2>Hospitals</h2>
+    <h2>Doctors</h2>
 
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Location</th>
-                <th>Phone number</th>
+                <th>Full Name</th>
+                <th>Speciality</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var hospital in Model)
+            @foreach (var doctor in Model)
             {
                 <tr>
                     <td>
-                        @hospital.Name
+                        @Html.ActionLink(doctor.FullName, "Edit", "Customers", new { id = doctor.Id }, null)
                     </td>
                     <td>
-                        @hospital.Location
+                        @doctor.SpecialityName
                     </td><td>
-                        @hospital.Phone
+                        Delete
                     </td>
                 </tr>
             }
