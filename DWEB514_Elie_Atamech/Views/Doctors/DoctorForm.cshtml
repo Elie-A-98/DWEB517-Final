@@ -10,16 +10,19 @@
 <div class="form-group">
     @Html.LabelFor(m => m.Doctor.FirstName)
     @Html.TextBoxFor(m => m.Doctor.FirstName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Doctor.FirstName)
 </div>
 
 <div class="form-group">
     @Html.LabelFor(m => m.Doctor.LastName)
     @Html.TextBoxFor(m => m.Doctor.LastName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Doctor.LastName)
 </div>
 
 <div class="form-group">
     @Html.LabelFor(m => m.Doctor.Phone)
     @Html.TextBoxFor(m => m.Doctor.Phone, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Doctor.Phone)
 </div>
 
 <div class="form-group">
@@ -30,6 +33,7 @@
 <div class="form-group">
     @Html.LabelFor(m => m.Doctor.Email)
     @Html.TextBoxFor(m => m.Doctor.Email, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Doctor.Email)
 </div>
 
 <div class="form-group">
@@ -40,6 +44,7 @@
 <div class="form-group">
     @Html.LabelFor(m => m.Doctor.SpecialityId)
     @Html.DropDownListFor(m => m.Doctor.SpecialityId, new SelectList(Model.Specialities, "Code", "Name"), "Select Speciality", new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Doctor.SpecialityId)
 </div>
 
 <div class="form-group">

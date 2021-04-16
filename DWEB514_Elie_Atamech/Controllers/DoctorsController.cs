@@ -29,6 +29,16 @@ namespace DWEB514_Elie_Atamech.Controllers
         [HttpPost]
         public ActionResult Save(DoctorModel doctor)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new DoctorFormViewModel
+                {
+                    Doctor = doctor,
+                    Specialities = specialityService.List(),
+                    Hospitals = hospitalService.List()
+                };
+                return View("DoctorForm", viewModel);
+            }
             doctorService.CreateOrUpdate(doctor);
             return RedirectToAction("Index", "Doctors");
         }
