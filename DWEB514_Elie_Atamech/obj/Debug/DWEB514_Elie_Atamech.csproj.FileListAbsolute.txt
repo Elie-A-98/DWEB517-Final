@@ -84,3 +84,9 @@ C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech\bin\DWEB51
 C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech\bin\EntityFramework.xml
 C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech\bin\EntityFramework.SqlServer.dll
 C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech\bin\EntityFramework.SqlServer.xml
+C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech\bin\System.Net.Http.Formatting.dll
+C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech\bin\System.Web.Http.dll
+C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech\bin\System.Web.Http.WebHost.dll
+C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech\bin\System.Net.Http.Formatting.xml
+C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech\bin\System.Web.Http.xml
+C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech\bin\System.Web.Http.WebHost.xml

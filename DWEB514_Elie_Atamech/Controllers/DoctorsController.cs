@@ -17,7 +17,7 @@ namespace DWEB514_Elie_Atamech.Controllers
         // GET: Doctors
         public ActionResult Index()
         {
-            return View(doctorService.List());
+            return View();
         }
     }
 }

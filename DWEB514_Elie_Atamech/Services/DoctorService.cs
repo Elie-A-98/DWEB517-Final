@@ -13,5 +13,13 @@ namespace DWEB514_Elie_Atamech.Services
         {
             return new DoctorModel().fromDAO(new Doctor().List());
         }
+        public IEnumerable<DoctorDto> DtosList()
+        {
+            return new DoctorDto().fromDAO(new Doctor().List());
+        }
+        public void Delete(int id)
+        {
+            new Doctor().Delete(id);
+        }
     }
 }
