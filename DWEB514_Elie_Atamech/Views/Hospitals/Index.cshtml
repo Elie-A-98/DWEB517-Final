@@ -1,0 +1,44 @@
+﻿@model IEnumerable<DWEB514_Elie_Atamech.Models.HospitalModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (!Model.Any())
+{
+    <p>There are no hospitals at the moment.</p>
+}
+else
+{
+    <h2>Hospitals</h2>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Phone number</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var hospital in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(hospital.Name, "Edit", "Customers", new { id = hospital.Id }, null)
+                    </td>
+                    <td>
+                        @hospital.Location
+                    </td><td>
+                        @hospital.Phone
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+
+
+

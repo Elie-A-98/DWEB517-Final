@@ -1,0 +1,12 @@
+C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech.BLL\bin\Debug\DWEB514_Elie_Atamech.BLL.dll.config
+C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech.BLL\bin\Debug\DWEB514_Elie_Atamech.BLL.dll
+C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech.BLL\bin\Debug\DWEB514_Elie_Atamech.BLL.pdb
+C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech.BLL\bin\Debug\EntityFramework.dll
+C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech.BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech.BLL\bin\Debug\EntityFramework.xml
+C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech.BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech.BLL\obj\Debug\DWEB514_Elie_Atamech.BLL.csprojAssemblyReference.cache
+C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech.BLL\obj\Debug\DWEB514_Elie_Atamech.BLL.csproj.CoreCompileInputs.cache
+C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech.BLL\obj\Debug\DWEB514_Elie_Atamech.BLL.csproj.CopyComplete
+C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech.BLL\obj\Debug\DWEB514_Elie_Atamech.BLL.dll
+C:\DotNetFramework Projects\DWEB514_Elie_Atamech\DWEB514_Elie_Atamech.BLL\obj\Debug\DWEB514_Elie_Atamech.BLL.pdb
